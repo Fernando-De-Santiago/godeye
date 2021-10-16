@@ -47,3 +47,15 @@ task clean(type: Delete) {
 apply from: rootProject.file('gradle/gradle-version-support.gradle')
 apply from: rootProject.file('gradle/gradle-changelog-support.gradle')
 apply from: rootProject.file('gradle/gradle-github-release-support.gradle')
+
+plugins {
+  id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "Fernando-De-Santiago_godeye"
+    property "sonar.organization", "fernando-de-santiago"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
