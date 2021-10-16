@@ -1,17 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-plugins {
-  id "org.sonarqube" version "3.3"
-}
-
-sonarqube {
-  properties {
-    property "sonar.projectKey", "Fernando-De-Santiago_godeye"
-    property "sonar.organization", "fernando-de-santiago"
-    property "sonar.host.url", "https://sonarcloud.io"
-  }
-}
-
 buildscript {
     repositories {
         if (Boolean.parseBoolean(USE_ALIYUN_REPO)) {
@@ -55,6 +43,19 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+plugins {
+  id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "Fernando-De-Santiago_godeye"
+    property "sonar.organization", "fernando-de-santiago"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
+}
+
 
 apply from: rootProject.file('gradle/gradle-version-support.gradle')
 apply from: rootProject.file('gradle/gradle-changelog-support.gradle')
